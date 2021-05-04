@@ -1,0 +1,485 @@
+.ov-product-info {
+  background-color: #fff;
+}
+
+.ov-container {
+  box-sizing: border-box;
+  display: grid;
+  overflow: clip;
+}
+
+/* phone/tablet layout */
+@media (max-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery'
+    'info'
+    'styles'
+    'cart'
+    'description'
+    'features';
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }}
+
+/* desktop layout */
+@media (min-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery info'
+    'gallery styles'
+    'gallery cart'
+    'description features';
+    grid-template-rows: auto;
+  }
+}
+
+@media (min-width:780px) and (max-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 320px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 408px;
+  }
+}
+
+
+.ov-container-extended {
+  grid-template-columns: 1fr 0px;
+  grid-template-rows: 211px 284px 385px 0px;
+}
+
+.ov-image-gallery {
+  grid-area: gallery;
+}
+
+.ov-product-info {
+  grid-area: info;
+}
+
+.ov-description {
+  grid-area: description;
+}
+
+.ov-style-selector {
+  grid-area: styles;
+}
+
+.ov-add-to-cart {
+  grid-area: cart;
+}
+
+.ov-features {
+  grid-area: features;
+}
+
+/* product info */
+
+.ov-product-info,
+.ov-style-selector,
+.ov-add-to-cart,
+.ov-features {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.ov-product-info {
+  display: grid;
+  row-gap: 8px;
+}
+
+.ov-product-grid-line {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.ov-rr-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (min-width: 780px) {
+  .ov-description {
+    margin-left: 120px;
+    padding-top: 0px;
+  }
+}
+
+.ov-features {
+  padding-top: 20px;
+  color: #444;
+  line-height: 1.5em;
+ }
+
+.ov-category {
+  text-transform: uppercase
+}
+
+.ov-sale-price {
+  color: red;
+}
+
+.ov-old-price {
+  text-decoration: line-through;
+}
+
+.ov-share-on-social {
+  margin-top: -16px;
+}
+
+.ov-share-hn {
+  background-color: #ff4000;
+}
+
+.ov-share-reddit {
+  background-color: #ff4500;
+}
+
+.ov-share-pinterest {
+  background-color: #cb2027;
+}
+
+.ov-share-hn,
+.ov-share-reddit,
+.ov-share-pinterest {
+  display: inline-block;
+  object-fit: scale-down;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:active,
+.ov-share-reddit:active,
+.ov-share-pinterest:active {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .8;
+  cursor: pointer;
+}
+
+
+/* gallery */
+
+.ov-image-gallery {
+  box-sizing: border-box;
+  display: grid;
+  position: relative;
+  height: 680px;
+  grid-template: 'thumbnails left image right';
+  grid-template-columns: 94px 1fr 20fr 1fr;
+}
+
+@media (max-width: 780px) {
+  .ov-image-gallery {
+    margin-bottom: 20px;
+  }
+}
+
+.ov-image-gallery-extended {
+  position: relative;
+  grid-template-columns: 94px 24px 1fr 24px;
+}
+
+.ov-main-gallery-image,
+.ov-main-gallery-image-extended
+ {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+  max-height: 680px;
+  object-fit: contain;
+}
+
+.ov-main-gallery-image {
+  cursor: zoom-in;
+}
+
+.ov-main-gallery-image-extended {
+  cursor: zoom-in;
+}
+
+.ov-gallery-left, .ov-gallery-left-extended {
+  grid-area: left;
+}
+
+.ov-gallery-right, .ov-gallery-right-extended {
+  grid-area: right;
+}
+
+.ov-gallery-left,
+.ov-gallery-right {
+  display: inline-block;
+  position: relative;
+  top: 48%;
+  left: 4px;
+  cursor: pointer;
+}
+
+.ov-gallery-left-extended,
+.ov-gallery-right-extended {
+  display: inline-block;
+  position: relative;
+  top: 49%;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-viewer {
+  position: relative;
+  grid-area: thumbnails;
+  display: grid;
+  justify-items: center;
+  grid-template: 'up' 'ths' 'down';
+  grid-template-columns: 80px;
+  height: 610px;
+}
+
+.ov-gallery-thumbnails-container {
+  position: absolute;
+  grid-area: ths;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+  top: -15px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.ov-gallery-thumbnails {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  transition: top .25s ease-in-out;
+}
+
+.ov-gallery-thumbnail {
+  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+  margin: 0 0 28px 0;
+  opacity: .8;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-selected {
+  transform: scale(1.1, 1.1);
+  box-shadow: 0px 0px 5px 2px #0004;
+  opacity: 1;
+  transition: .2s;
+}
+
+.ov-gallery-thumbnail-extended {
+  box-sizing: border-box;
+  transform: scale(1.1, 1.1);
+  background-color: #666;
+  height: 60px;
+  width: 60px;
+  opacity: .4;
+  margin: 0 0 28px 0;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-extended-selected {
+  box-shadow: 0px 0px 5px 2px #0004;;
+  transition: .2s;
+  opacity: 1;
+}
+
+.ov-up-arrow {
+  grid-area: up;
+}
+
+.ov-down-arrow {
+  grid-area: down;
+}
+
+.ov-up-arrow,
+.ov-down-arrow {
+  display: block;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.ov-extended-view-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.ov-gallery-extended-zoomed {
+  cursor: crosshair;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.ov-zoomed-image {
+  position: absolute;
+  transform-origin: top left;
+  top: 0;
+  left: 0;
+}
+
+/* style selector */
+
+.ov-style-selector {
+  margin-top: 12px;
+}
+
+.ov-style-item-container {
+  margin-right: 0;
+}
+
+.ov-style-item {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 12px;
+  border-radius: 30px;
+  border: 1px solid #333;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-selected-style-item {
+  font-size: 2em;
+}
+
+.ov-style-selector-check {
+  position: absolute;
+  margin-left: 40px;
+  margin-right: 0;
+  background: white;
+  border: 1px solid #333;
+  color: #333;
+  padding-left: 2.5px;
+  font-size: .4em;
+  width: 12px;
+  border-radius: 999px;
+}
+
+/* add to cart */
+
+.ov-add-to-cart {
+  display: grid;
+  grid-template:
+    'atc1'
+    'atc2';
+  row-gap: 24px;
+  grid-template-rows: 60px 60px;
+}
+
+.atc1 {
+  grid-area: atc1;
+  display: grid;
+  grid-template: 'size quant';
+  column-gap: 24px;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: 60px;
+  margin-bottom: 24px;
+}
+
+.atc2 {
+  grid-area: atc2;
+  display: grid;
+  grid-template: 'add like';
+  column-gap: 24px;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 60px;
+}
+
+.ov-cart-size { grid-area: size; }
+.ov-cart-quantity {grid-area: quant; }
+.ov-cart-add { grid-area: add; }
+.ov-cart-like { grid-area: like; }
+
+.ov-cart-size {
+  height: 100%;
+  width: 100%;
+  text-indent: 12px;
+  text-transform: uppercase;
+}
+
+.ov-cart-quantity {
+  width: 100%;
+  height: 100%;
+  text-indent: 12px
+}
+
+.ov-cart-add {
+  height: 100%;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.ov-cart-add-active {
+  cursor: pointer;
+}
+
+.ov-cart-add-active:hover {
+  box-shadow: 0px 0px 2px 2px #0002;
+}
+
+.ov-cart-add-active:active {
+  box-shadow: 0px 0px 2px 2px #0004;
+}
+
+.ov-cart-like {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60px;
+  height: 100%;
+  border: 1px solid black;
+  padding: 15px !important;
+  cursor: pointer;
+}
+
+.ov-cart-size,
+.ov-cart-quantity,
+.ov-cart-add {
+  padding: 0;
+  background-color: white;
+  border: 1px solid #666;
+}
+
+/* features list */
+
+.ov-feature-check {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2em;
+  padding-right: 5px;
+}
