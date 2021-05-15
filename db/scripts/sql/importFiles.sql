@@ -9,6 +9,14 @@ DELETE FROM Products;
 DELETE FROM Related;
 DELETE FROM SKU;
 DELETE FROM Styles;
+DELETE FROM Reviews;
+
+LOAD DATA LOCAL INFILE 'csv/cleaned_files/reviews.csv'
+INTO TABLE Reviews
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
 LOAD DATA LOCAL INFILE 'csv/cleaned_files/photos.csv'
 INTO TABLE Photos
@@ -55,6 +63,7 @@ IGNORE 1 ROWS;
 -- There are 2 errors that I had to fix:
 -- 1. "The MySQL server is running with the --secure-file-priv option so it cannot execute this statement"
 -- SOLUTION: Use "LOCAL" in LOAD DATA solved the security error
+-- SET GLOBAL local_infile = true;
 --
 -- 2. "Loading local data is disabled; this must be enabled on both the client and server side"
 -- SOLUTION: run SQL script with parameter --local-infile=1

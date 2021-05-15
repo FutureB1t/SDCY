@@ -1,10 +1,11 @@
 var mysql = require('mysql');
+var config = require('../../config')
 
 var con = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "",
+  password: config.MYSQL_PASSWORD,
   database: "SDCY"
 });
 
@@ -67,4 +68,20 @@ exports.getProductCard = (req, res) => {
         if (error) console.log(error)
         res.send(data)
     })
+}
+
+exports.getProductRating = (req, res) => {
+
+  var sqlQuery = `
+
+      select avg(Rating) as rating
+      from Reviews
+      where ProductID = ${req.params.id};
+  `
+  
+  con.query(sqlQuery, function(error, data) {
+      
+      if (error) console.log(error)
+      res.send(data)
+  })
 }

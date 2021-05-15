@@ -52,6 +52,31 @@ const RelatedProducts = (props) => {
                                     itemProductId={item}
                                 />
                             )])
+                        } else if (itemData[0]) {
+
+                            imageUrl = itemData[0].ThumbnailURL
+
+                            setRelatedCardList((relatedCardList) => [...relatedCardList, (
+                                
+                                <ItemCard
+                                    itemImage={imageUrl}
+                                    itemCategory={itemData[0].Category}
+                                    itemName={itemData[0].Name}
+                                    itemPrice={'$' + itemData[0].DefaultPrice}
+                                    itemProductId={item}
+                                />
+                            )])
+                        } else {
+                            setRelatedCardList((relatedCardList) => [...relatedCardList, (
+                                
+                                <ItemCard
+                                    itemImage={null}
+                                    itemCategory={null}
+                                    itemName={null}
+                                    itemPrice={'$0'}
+                                    itemProductId={item}
+                                />
+                            )])
                         }
                     }
                 })

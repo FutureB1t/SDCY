@@ -7,6 +7,23 @@ DROP TABLE IF EXISTS Features;
 DROP TABLE IF EXISTS SKU;
 DROP TABLE IF EXISTS Related;
 DROP TABLE IF EXISTS Photos;
+DROP TABLE IF EXISTS Reviews;
+
+CREATE TABLE Reviews (
+  ReviewsID INT,
+  ProductID INT,
+  Rating INT,
+  Date INT,
+  Summary VARCHAR(255),
+  Body VARCHAR(1024),
+  Recommend VARCHAR(64),
+  Reported VARCHAR(64),
+  ReviewerName VARCHAR(64),
+  ReviewerEmail VARCHAR(128),
+  Response VARCHAR(64),
+  Helpfulness INT,
+  PRIMARY KEY (ReviewsID)
+);
 
 CREATE TABLE Products (
   ProductID INT,

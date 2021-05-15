@@ -7,25 +7,27 @@ const ItemCard = (props) => {
     const [productRating, setProductRating] = useState(0);
     const [readyToRender, setReadyToRender] = useState(true);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     axios({ url: `api/reviews?product_id=${props.itemProductId}`, method: 'get'})
-    //     .then((res) => {
+        axios({ url: `/sqlapi/ratings/${props.itemProductId}`, method: 'get'})
+        .then((res) => {
             
-    //         let ratingData = res.data.results;
+            setProductRating(res.data[0].rating)
 
-    //         if (ratingData.length !== 0) {
+            // let ratingData = res.data.results;
 
-    //             let ratingList = [];
-    //             ratingData.map((item) => ratingList.push(item.rating))
+            // if (ratingData.length !== 0) {
 
-    //             // Mean (average) of the given ratings
-    //             setProductRating(ratingList.reduce((a, b) => a + b) / ratingList.length)
-    //         }
-    //     })
-    //     .then(() => setReadyToRender(true))
+            //     let ratingList = [];
+            //     ratingData.map((item) => ratingList.push(item.rating))
 
-    // }, [props.itemProductId])
+            //     // Mean (average) of the given ratings
+            //     setProductRating(ratingList.reduce((a, b) => a + b) / ratingList.length)
+            // }
+        })
+        .then(() => setReadyToRender(true))
+
+    }, [props.itemProductId])
 
     let returnRender = readyToRender ? (
 

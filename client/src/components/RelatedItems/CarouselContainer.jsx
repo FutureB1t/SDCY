@@ -22,11 +22,10 @@ const CarouselContainer = (props) => {
 
       <h3 className="pRelated">RELATED PRODUCTS</h3>
       <RelatedProducts productId={props.productId}/>
-{/* 
       <h3 className="pRelated">YOUR OUTFIT</h3>
-      <OutfitProducts /> */}
+      <OutfitProducts />
     </div>
-  ) : (<div>Loading...</div>)
+  ) : (<div>Loading carousel...</div>)
   
   return returnRender
 }

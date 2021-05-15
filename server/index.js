@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 3500;
+const port = 3000;
 
 const Controller = require('./Controller/controller.js');
 
@@ -23,6 +23,8 @@ app.put('/api/*', Controller.put);
 const sqlApp = require('./Model/sqlModel')
 app.get('/sqlapi/related/:id', sqlApp.getRelatedProducts)
 app.get('/sqlapi/products/:id', sqlApp.getProductCard)
+app.get('/sqlapi/ratings/:id', sqlApp.getProductRating)
+
 
 
 

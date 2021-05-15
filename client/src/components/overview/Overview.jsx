@@ -140,7 +140,7 @@ const Overview = ({ productId }) => {
             )}
         </div>
       )
-      : (<div>loading...</div>);
+      : (<div>Loading overview...</div>);
   } catch (e) {
     console.log('error during rendering:', e);
   }
