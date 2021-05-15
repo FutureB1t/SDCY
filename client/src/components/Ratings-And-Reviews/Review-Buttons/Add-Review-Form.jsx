@@ -1,3 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-boolean-value */
+/* eslint-disable radix */
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/no-typos */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -6,7 +13,7 @@ import FormCharacteristics from './Form-Characteristics.jsx';
 import Stars from '../../shared/Stars.jsx';
 
 const AddReviewForm = ({
-  productId, setReviewData, reviewMetaData, setReviewMetaData, setShowAddReview,
+  productId, setReviewData, reviewMetaData, setReviewMetaData, setShowModal,
 }) => {
   const [recommended, setRecommended] = useState(false);
   const [reviewSummary, setReviewSummary] = useState('summary placeholder');
@@ -82,7 +89,7 @@ const AddReviewForm = ({
         setReviewMetaData(data);
       });
 
-    setShowAddReview(false);
+    setShowModal(false);
   };
 
   return (
@@ -97,7 +104,6 @@ const AddReviewForm = ({
         clickable={true}
       />
       <br />
-      <br />
 
       <label htmlFor="recommended">Recommended?</label>
       <br />
@@ -107,10 +113,8 @@ const AddReviewForm = ({
       <input type="radio" id="no" name="recommended" value="no" onClick={handleRadioButton.bind(this)} />
       <label htmlFor="no">no</label>
       <br />
-      <br />
 
       Characteristics:
-      <br />
       <br />
       {Object.keys(characteristics).map((individualCharacteristic) => (
         <>
@@ -121,7 +125,6 @@ const AddReviewForm = ({
             setReviewCharacteristics={setReviewCharacteristics}
           />
           <br />
-          <br />
         </>
       ))}
       <br />
@@ -129,23 +132,19 @@ const AddReviewForm = ({
       <br />
       <input type="text" name="summary" onChange={handleUpdateTextBox.bind(this)} />
       <br />
-      <br />
       Review Body:
       <br />
-      <textarea rows="5" cols="30" name="review-body" onChange={handleUpdateTextBox.bind(this)} />
-      <br />
+      <textarea rows="5" cols="50" name="review-body" onChange={handleUpdateTextBox.bind(this)} />
       <br />
       Nickname:
       <br />
       <input type="text" name="nickname" onChange={handleUpdateTextBox.bind(this)} />
       <br />
-      <br />
       Email:
       <br />
       <input type="email" name="email" onChange={handleUpdateTextBox.bind(this)} />
       <br />
-      <br />
-      <input className="review-button" type="submit" value="Submit" />
+      <input type="submit" value="Submit" onSubmit={handleSubmit.bind()} />
     </form>
   );
 };
@@ -155,7 +154,7 @@ AddReviewForm.propTypes = {
   setReviewData: PropTypes.func.isRequired,
   reviewMetaData: PropTypes.object.isRequired,
   setReviewMetaData: PropTypes.func.isRequired,
-  setShowAddReview: PropTypes.func.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default AddReviewForm;

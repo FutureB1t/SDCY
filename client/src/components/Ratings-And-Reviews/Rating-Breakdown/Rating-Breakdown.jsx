@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -15,7 +16,6 @@ const RatingBreakdown = ({ reviewMetaData }) => {
         recommended={recommended}
       />
       <Breakdown ratings={ratings} />
-      <br />
       <ProductBreakdown characteristics={characteristics} />
     </>
   );

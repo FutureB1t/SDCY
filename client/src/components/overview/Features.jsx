@@ -1,22 +1,21 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Features = ({ features }) => (
-  <div className="ov-features">
-    {features.map((feature) => (
-      <div key={feature.feature}>
-        <span className="ov-feature-check">✓</span>
-        {feature.feature}
-        {feature.value && `: ${feature.value}`}
-      </div>
-    ))}
-  </div>
-);
-
-Features.propTypes = {
-  features: PropTypes.arrayOf(PropTypes.shape({
-    feature: PropTypes.string,
-  })).isRequired,
+// eslint-disable-next-line arrow-body-style
+const Features = ({ features }) => {
+  return (
+    <div className="ov-features">
+      {features.map((feature, idx) => (
+        <div key={idx}>
+          <span className="ov-feature-check">✓</span>
+          {feature.feature}
+          {feature.value ? `: ${feature.value}` : null}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Features;

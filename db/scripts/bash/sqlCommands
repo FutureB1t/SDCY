@@ -1,0 +1,2 @@
+cd ~/Desktop/SDCY/db
+mysql -u root < createDatabaseSchema.sql

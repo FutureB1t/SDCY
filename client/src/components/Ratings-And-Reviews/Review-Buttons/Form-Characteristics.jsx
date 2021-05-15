@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -42,11 +43,7 @@ const FormCharacteristics = ({
     <>
       {individualCharacteristic}
       :&nbsp;
-      <select
-        className="characteristic-selector"
-        id={individualCharacteristic}
-        onChange={handleClick.bind(this)}
-      >
+      <select id={individualCharacteristic} onChange={handleClick.bind(this)}>
         <IndividualFormCharacteristic
           individualCharacteristic={productCharacteristics[individualCharacteristic]}
         />

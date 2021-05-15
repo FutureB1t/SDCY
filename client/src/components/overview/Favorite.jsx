@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 const Favorite = ({ styleId }) => {
   const [liked, setLiked] = useState(false);
@@ -20,8 +21,6 @@ const Favorite = ({ styleId }) => {
     <div
       className="ov-cart-like"
       onClick={toggleLiked}
-      role="button"
-      tabIndex={0}
     >
       <input
         className="ov-cart-like-input"
@@ -32,10 +31,6 @@ const Favorite = ({ styleId }) => {
       />
     </div>
   );
-};
-
-Favorite.propTypes = {
-  styleId: PropTypes.number.isRequired,
 };
 
 export default Favorite;

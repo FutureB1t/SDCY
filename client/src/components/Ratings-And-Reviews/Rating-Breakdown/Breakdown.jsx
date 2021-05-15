@@ -1,3 +1,7 @@
+/* eslint-disable radix */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-console */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,18 +16,17 @@ const Breakdown = ({ ratings }) => {
     }
   });
 
-  const listOfRatings = Object.entries(ratings).slice().reverse();
-  return listOfRatings.map((rating) => {
+  return Object.entries(ratings).slice().reverse().map((rating) => {
     const [key, value] = rating;
 
     return (
-      <>
+      <div key={Math.random() * 1000000}>
         <IndividualStarBar
           star={parseInt(key)}
           counts={parseInt(value)}
           max={mostRatings}
         />
-      </>
+      </div>
     );
   });
 };

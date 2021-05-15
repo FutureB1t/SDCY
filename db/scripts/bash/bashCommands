@@ -1,0 +1,16 @@
+cd ~/Desktop/SDCY/db/csv/
+
+# this command shows how big the files are
+du -sh *
+
+# command for finding the number of rows
+wc -l *
+
+# taking first 100 rows of each file
+for file in *.csv
+  do head -n 100 < $file > $file".head.csv"
+done
+
+# moving the files into the new folder
+mkdir head_files
+mv *.head.csv head_files/

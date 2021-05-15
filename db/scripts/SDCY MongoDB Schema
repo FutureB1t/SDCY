@@ -1,0 +1,100 @@
+// const mongoose = require("mongoose");
+// mongoose.connect('mongodb://localhost/SDCY', {useNewUrlParser: true, useUnifiedTopology: true});
+
+// // All of the following are part of SDCY Database
+// const sdcySchema = mongoose.Schema({
+
+//   ProductID: Number, // this would be Int32 in MongoDB
+//   Name: String,
+//   Slogan: String,
+//   Description: String,
+//   Category: String,
+//   DefaultPrice: Number, // this would be Double in MongoDB
+
+//   // RelatedID is the array of Numbers
+//   RelatedID: [Number],
+
+//   // Feature is an array of objects containing two strings?
+//   Feature: [{
+//     Category: String,
+//     Value: String,
+//   }],
+
+//   // Styles
+//   Results: [{
+
+//     StyleID: Number,
+//     StyleName: String,
+//     StyleOriginalPrice: Number,
+//     StyleSalePrice: Number,
+//     StyleDefault: Boolean,
+//     Photos: [{
+
+//       ThumbnailURL: String,
+//       URL: String,
+//     }],
+//     SKUS: {
+
+//       SkuID: {
+
+//         Quantity: Number,
+//         Size: String,
+//       },
+//     },
+//   }],
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+// const model = mongoose.model("Products", sdcySchema);
+
+// const insertExample = new model({
+
+//   ProductID: 1, // this would be Int32 in MongoDB
+//   Name: 'Test',
+//   Slogan: 'Test',
+//   Description: 'Test',
+//   Category: 'Test',
+//   DefaultPrice: 123.4, // this would be Double in MongoDB
+
+//   // RelatedID is the array of Numbers
+//   RelatedID: [1, 2, 3, 4, 5],
+
+//   // Feature is an array of objects containing two strings?
+//   Feature: [{
+//     Category: 'Test',
+//     Value: 'Test',
+//   }],
+
+//   // Styles
+//   Results: [{
+
+//     StyleID: 1,
+//     StyleName: 'Test',
+//     StyleOriginalPrice: 123.4,
+//     StyleSalePrice: 123.4,
+//     StyleDefault: true,
+//     Photos: [{
+
+//       ThumbnailURL: 'Test',
+//       URL: 'Test',
+//     }],
+//     SKUS: {
+
+//       SkuID: {
+
+//         Quantity: 1,
+//         Size: 'Test',
+//       },
+//     },
+//   }]
+// });

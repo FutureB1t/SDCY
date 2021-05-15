@@ -1,9 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import * as Scroll from 'react-scroll';
 import { Link } from 'react-scroll';
 
 import Stars from '../shared/Stars.jsx';
 import ShareOnSocial from './ShareOnSocial.jsx';
+
+// eslint-disable-next-line arrow-body-style
 
 const getRatingCount = (ratings) => Object.values(ratings)
   .reduce((sum, n) => sum + Number(n), 0);
@@ -15,9 +20,12 @@ const getAverageRating = (ratings) => {
   return ratingSum / count;
 };
 
-const ProductInfo = ({ info, ratings, price, salePrice }) => {
+const ProductInfo = ({
+  info, ratings, price, salePrice,
+}) => {
   const ratingCount = getRatingCount(ratings);
   const averageRating = getAverageRating(ratings);
+  const [rating, setRating] = useState(averageRating);
 
   return (
     <div className="ov-product-info">
@@ -33,14 +41,15 @@ const ProductInfo = ({ info, ratings, price, salePrice }) => {
           : <span>{`$${price}`}</span>}
       </div>
       <div className="ov-product-grid-line">
-        {(ratingCount >= 2) && (
-          <>
-            <Stars rating={averageRating} clickable={false} />
-            <Link className="ov-rr-link" to="reviewsContainer" smooth>
-              {`Read all ${ratingCount} reviews`}
-            </Link>
-          </>
-        )}
+        {ratingCount >= 2
+          ? (
+            <>
+              <Stars rating={averageRating} clickable={false} />
+              <Link className="ov-rr-link" to="reviewsContainer" smooth>
+                {`Read all ${ratingCount} reviews`}
+              </Link>
+            </>
+          ) : null}
       </div>
       <h4 className="ov-category ov-product-grid-line">{info.category}</h4>
 
@@ -52,12 +61,6 @@ const ProductInfo = ({ info, ratings, price, salePrice }) => {
       />
     </div>
   );
-};
-
-ProductInfo.propTypes = {
-  info: PropTypes.object.isRequired,
-  ratings: PropTypes.object.isRequired,
-  price: PropTypes.string.isRequired,
 };
 
 export default ProductInfo;
